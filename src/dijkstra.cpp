@@ -33,8 +33,10 @@ void dijkstra(int s) {
     Q.push(make_pair(0, s));
 
     for(int i = 0; i < V; i++) {
-        int x = Q.top().second; Q.pop();
-        if(vis[x]) continue;
+        int x = Q.top().second; 
+        Q.pop();
+        if(vis[x]) 
+            continue;
         vis[x] = true;
         for(edge &e : G[x]) {
             if(d[e.to] > d[x]+e.cost) {
@@ -53,27 +55,37 @@ int main() {
     int count = 0;
     while(infile >> from >> to){
         G[from].push_back((edge){to, cost});
-        G[to].push_back((edge){from,cost});
+        // G[to].push_back((edge){from,cost});
     }
 
-    int lsp = 0;
-    for(int i = 0; i < V; ++i){
-        dijkstra(i);
-        int longest = 0;
-        int endnode = 0;
-        for (int j = 0; j < V ; j++){
-            if( d[j] > longest && d[j] != INF){
-                longest = d[j];
-                endnode = j;
-            }
-            d[j] = 0;
-            vis[j] = false;
-        }
-        if(longest > lsp){
-            lsp = longest;
-            cout << "Source node : " << i <<  " to end node : " << endnode << " , longest shortest path is : " << lsp << endl;
+    dijkstra(0);
+
+    int longest = 0;
+    for(int i = 0; i < V; i++){
+        if(d[i] > longest && d[i] != INF){
+            longest = d[i];
+            cout << "to node : " << i << " distance : " << longest << endl;
         }
     }
+
+    // int lsp = 0;
+    // for(int i = 0; i < V; ++i){
+    //     dijkstra(i);
+    //     int longest = 0;
+    //     int endnode = 0;
+    //     for (int j = 0; j < V ; j++){
+    //         if( d[j] > longest && d[j] != INF){
+    //             longest = d[j];
+    //             endnode = j;
+    //         }
+    //         d[j] = 0;
+    //         vis[j] = false;
+    //     }
+    //     if(longest > lsp){
+    //         lsp = longest;
+    //         cout << "Source node : " << i <<  " to end node : " << endnode << " , longest shortest path is : " << lsp << endl;
+    //     }
+    // }
     
     return 0;
 }
