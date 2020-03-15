@@ -31,3 +31,5 @@
 *.out
 *.app
 src/*.out
+
+*.DS_store
