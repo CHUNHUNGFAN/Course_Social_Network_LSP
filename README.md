@@ -1,4 +1,4 @@
-# Project Title
+# Web graph analysis
 
 This project is assignment 1 of course `Social Network and Computing` in National Chung Hsing University, department of computer science and engineering. The aims of this project are to calculate the average degree, average clustering coefficient, diameter and degree distribution.
 
@@ -50,11 +50,11 @@ End with an example of getting some data out of the system
 * Average clustering coefficient (Without the node degree = 1): 0.195165
 * Clustering Coefficient image
 
-![][figures/ci_distribution.png]
+![](figures/ci_distribution.png)
 
 * Degree distribution image
 
-![][figures/degree_distribution.png]
+![](figures/degree_distribution.png)
 
 
 ## Contributing
